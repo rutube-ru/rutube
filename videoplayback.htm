@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Смотреть: videoplayback :: RuTube</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="wrapper" style="width: 980px; margin: 0 auto; background: #fff; border: 1px solid #ccc; min-height: 100vh;">
+        <!-- Шапка (как на главной, но чуть компактнее) -->
+        <header style="padding: 10px; border-bottom: 2px solid #008000; background: #f9f9f9;">
+            <a href="index.htm">
+                <img src="rutube.png" alt="RuTube" style="height: 40px; border: 0;">
+            </a>
+            <span style="color: #666; font-style: italic; margin-left: 10px;">Всё видео!</span>
+        </header>
+
+        <main style="padding: 20px;">
+            <!-- Заголовок ролика -->
+            <h1 style="font-size: 20px; color: #000; margin-bottom: 10px;">videoplayback.mp4</h1>
+            
+            <div style="display: flex;">
+                <!-- ЛЕВАЯ КОЛОНКА: Плеер -->
+                <div style="flex: 1;">
+                    <div id="video-container" style="background: #000; padding: 5px; border: 1px solid #999; line-height: 0;">
+                        <!-- Тег видео, который подхватит твой файл videoplayback.mp4 -->
+                        <video id="mainPlayer" width="640" height="360" controls autoplay style="outline: none;">
+                            <source src="videoplayback.mp4" type="video/mp4">
+                            Ваш браузер не поддерживает видео.
+                        </video>
+                    </div>
+
+                    <!-- Блок под плеером: Рейтинг и инфо -->
+                    <div style="margin-top: 15px; padding: 10px; background: #eee; border: 1px solid #ccc; display: flex; justify-content: space-between;">
+                        <div>
+                            <button style="font-weight: bold; cursor: pointer;">Мне нравится!</button>
+                            <span style="margin-left: 10px; color: #666;">Просмотров: 124,502</span>
+                        </div>
+                        <div style="color: #ff6600; font-weight: bold;">Рейтинг: ★★★★☆</div>
+                    </div>
+                </div>
+
+                <!-- ПРАВАЯ КОЛОНКА: Похожие видео -->
+                <aside style="width: 280px; margin-left: 20px;">
+                    <h3 style="font-size: 14px; border-bottom: 1px solid #ccc; padding-bottom: 5px;">Похожие ролики</h3>
+                    <div style="margin-top: 10px;">
+                        <a href="#" style="text-decoration: none; display: flex; margin-bottom: 10px;">
+                            <div style="width: 80px; height: 60px; background: #333; flex-shrink: 0;"></div>
+                            <div style="margin-left: 10px; font-size: 12px; color: #0033cc; font-weight: bold;">Следующее видео...</div>
+                        </a>
+                        <a href="index.htm" style="color: #cc0000; font-weight: bold; font-size: 12px;">← Вернуться к списку</a>
+                    </div>
+                </aside>
+            </div>
+        </main>
+
+        <footer style="text-align: center; padding: 20px; color: #999; font-size: 11px; border-top: 1px solid #eee;">
+            &copy; 2006-2009 RuTube. Всё видео в одном месте!
+        </footer>
+    </div>
+</body>
+</html>
