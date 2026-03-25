@@ -32,14 +32,19 @@
                     </div>
 
                     <!-- Блок под плеером: Рейтинг и инфо -->
-                    <div style="margin-top: 15px; padding: 10px; background: #eee; border: 1px solid #ccc; display: flex; justify-content: space-between;">
-                        <div>
-                            <button style="font-weight: bold; cursor: pointer;">Мне нравится!</button>
-                            <span style="margin-left: 10px; color: #666;">Просмотров: 124,502</span>
-                        </div>
-                        <div style="color: #ff6600; font-weight: bold;">Рейтинг: ★★★★☆</div>
-                    </div>
-                </div>
+                    <div style="margin-top: 15px; padding: 10px; background: #eee; border: 1px solid #ccc; display: flex; justify-content: space-between; align-items: center;">
+    <div>
+        <!-- Кнопка с ID для скрипта -->
+        <button id="likeBtn" style="font-weight: bold; cursor: pointer; padding: 5px 10px; background: #fff; border: 1px solid #999;">
+            Мне нравится!
+        </button>
+        <span style="margin-left: 10px; color: #666;">
+            Рейтинг: <span id="likeCount">84</span>
+        </span>
+    </div>
+    <div style="color: #ff6600; font-weight: bold;">Просмотров: 124,502</div>
+</div>
+
 
                 <!-- ПРАВАЯ КОЛОНКА: Похожие видео -->
                 <aside style="width: 280px; margin-left: 20px;">
