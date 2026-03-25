@@ -34,22 +34,28 @@
 
 
 
-        <main>
-            <section class="player-section">
-                <h1>Название видео из 2008 года</h1>
-                <!-- Имитация Flash-плеера -->
-                <div id="flash-player-mock">
-                    <div class="video-screen">
-                        <img src="placeholder.jpg" alt="Video">
-                        <div class="play-overlay">▶</div>
-                    </div>
-                    <div class="controls">
-                        <button class="btn">Play</button>
-                        <div class="progress-bar"><div class="fill"></div></div>
-                        <span class="time">00:00 / 03:45</span>
-                    </div>
+       <main>
+    <!-- Сетка видео в стиле 2007-го -->
+    <div style="padding: 20px; display: flex; flex-wrap: wrap;">
+        
+        <!-- Одно видео (Карточка) -->
+        <div style="width: 180px; margin-right: 20px; text-align: left;">
+            <a href="videoplayback.htm" style="text-decoration: none;">
+                <!-- Заглушка под превью -->
+                <div style="width: 160px; height: 120px; background: #000; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold;">
+                    <img src="video1.png" style="width: 80px; opacity: 0.5;" alt="Превью">
                 </div>
-            </section>
+                <!-- Название видео -->
+                <p style="color: #0033cc; font-weight: bold; font-size: 13px; margin-top: 5px; text-decoration: underline;">
+                    videoplayback.mp4
+                </p>
+            </a>
+            <span style="color: #666; font-size: 11px;">Просмотров: 124 502</span>
+        </div>
+
+    </div>
+</main>
+
 
             <aside class="sidebar">
                 <h3>Похожие видео</h3>
