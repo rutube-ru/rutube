@@ -73,3 +73,27 @@ header {
     border: 1px solid #999;
     cursor: pointer;
 }
+.top-menu {
+    margin: 10px 0;
+    font-size: 13px;
+    color: #666; /* Цвет разделителей */
+}
+
+.top-menu a {
+    color: #0033cc; /* Тот самый синий цвет ссылок 2000-х */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0 5px;
+}
+
+.top-menu a:hover {
+    text-decoration: underline;
+    color: #ff6600; /* Оранжевый при наведении был фишкой RuTube */
+}
+
+.logo {
+    height: 45px;
+    vertical-align: middle;
+    border: 0;
+}
+
