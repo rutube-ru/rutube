@@ -52,5 +52,44 @@
             <p>&copy; 2006-2009 RuTube. Передаем привет эпохе Flash!</p>
         </footer>
     </div>
+<script>
+    // Имитация работы старого Flash-плеера
+    const playBtn = document.querySelector('.btn');
+    const progressBar = document.querySelector('.fill');
+    const videoScreen = document.querySelector('.video-screen');
+    let isPlaying = false;
+    let progress = 0;
+
+    playBtn.onclick = function() {
+        if (!isPlaying) {
+            isPlaying = true;
+            playBtn.innerText = 'Pause';
+            startVideo();
+        } else {
+            isPlaying = false;
+            playBtn.innerText = 'Play';
+        }
+    };
+
+    function startVideo() {
+        const interval = setInterval(() => {
+            if (!isPlaying) {
+                clearInterval(interval);
+                return;
+            }
+            if (progress < 100) {
+                progress += 0.5; // Скорость "воспроизведения"
+                progressBar.style.width = progress + '%';
+            } else {
+                progress = 0;
+                isPlaying = false;
+                playBtn.innerText = 'Play';
+                clearInterval(interval);
+                alert('Видео просмотрено! Оставь коммент под роликом!');
+            }
+        }, 100);
+    }
+</script>
+
 </body>
 </html>
