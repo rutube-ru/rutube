@@ -52,44 +52,42 @@
             <p>&copy; 2006-2009 RuTube. Передаем привет эпохе Flash!</p>
         </footer>
     </div>
-<script>
-    // Имитация работы старого Flash-плеера
-    const playBtn = document.querySelector('.btn');
-    const progressBar = document.querySelector('.fill');
-    const videoScreen = document.querySelector('.video-screen');
-    let isPlaying = false;
-    let progress = 0;
+<!-- Твой HTML код выше (шапка, логотип, плеер) -->
 
-    playBtn.onclick = function() {
-        if (!isPlaying) {
-            isPlaying = true;
-            playBtn.innerText = 'Pause';
-            startVideo();
-        } else {
-            isPlaying = false;
-            playBtn.innerText = 'Play';
+    <script>
+        // 1. Находим элементы (кнопки и полоску), которые ты сделал в HTML
+        const playBtn = document.querySelector('.btn'); // Твоя кнопка из 2000-х
+        const progressBar = document.querySelector('.fill'); // Заливка полоски прогресса
+        const videoElement = document.querySelector('video'); // Тег видео (если добавил)
+
+        // 2. Оживляем кнопку Play/Pause
+        if (playBtn && videoElement) {
+            playBtn.onclick = function() {
+                if (videoElement.paused) {
+                    videoElement.play();
+                    playBtn.innerText = 'Pause';
+                    playBtn.style.boxShadow = 'inset 2px 2px 5px #000'; // Эффект нажатия
+                } else {
+                    videoElement.pause();
+                    playBtn.innerText = 'Play';
+                    playBtn.style.boxShadow = 'none';
+                }
+            };
         }
-    };
 
-    function startVideo() {
-        const interval = setInterval(() => {
-            if (!isPlaying) {
-                clearInterval(interval);
-                return;
-            }
-            if (progress < 100) {
-                progress += 0.5; // Скорость "воспроизведения"
-                progressBar.style.width = progress + '%';
-            } else {
-                progress = 0;
-                isPlaying = false;
-                playBtn.innerText = 'Play';
-                clearInterval(interval);
-                alert('Видео просмотрено! Оставь коммент под роликом!');
-            }
-        }, 100);
-    }
-</script>
+        // 3. Двигаем полоску прогресса (как в настоящем плеере)
+        if (videoElement && progressBar) {
+            videoElement.ontimeupdate = function() {
+                // Вычисляем процент просмотренного видео
+                let percentage = (videoElement.currentTime / videoElement.duration) * 100;
+                progressBar.style.width = percentage + '%';
+            };
+        }
 
-</body>
+        // 4. Пасхалка в стиле 2007-го
+        console.log("RuTube 2007 запущен! Привет из эпохи Flash!");
+    </script>
+
+</body> <!-- Это самый конец твоего файла -->
 </html>
+
