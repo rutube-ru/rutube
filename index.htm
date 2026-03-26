@@ -39,7 +39,7 @@
     <div style="padding: 20px; display: flex; flex-wrap: wrap;">
         
         <!-- Одно видео (Карточка) -->
-        <div style="width: 180px; margin-right: 20px; text-align: left;">
+        <div style="width: 200px; margin-right: 20px; text-align: left;">
             <a href="videoplayback.htm" style="text-decoration: none;">
                 <!-- Заглушка под превью -->
                 <div style="width: 160px; height: 120px; background: #000; border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold;">
@@ -75,40 +75,6 @@
         </footer>
     </div>
 <!-- Твой HTML код выше (шапка, логотип, плеер) -->
-
-    <script>
-        // 1. Находим элементы (кнопки и полоску), которые ты сделал в HTML
-        const playBtn = document.querySelector('.btn'); // Твоя кнопка из 2000-х
-        const progressBar = document.querySelector('.fill'); // Заливка полоски прогресса
-        const videoElement = document.querySelector('video'); // Тег видео (если добавил)
-
-        // 2. Оживляем кнопку Play/Pause
-        if (playBtn && videoElement) {
-            playBtn.onclick = function() {
-                if (videoElement.paused) {
-                    videoElement.play();
-                    playBtn.innerText = 'Pause';
-                    playBtn.style.boxShadow = 'inset 2px 2px 5px #000'; // Эффект нажатия
-                } else {
-                    videoElement.pause();
-                    playBtn.innerText = 'Play';
-                    playBtn.style.boxShadow = 'none';
-                }
-            };
-        }
-
-        // 3. Двигаем полоску прогресса (как в настоящем плеере)
-        if (videoElement && progressBar) {
-            videoElement.ontimeupdate = function() {
-                // Вычисляем процент просмотренного видео
-                let percentage = (videoElement.currentTime / videoElement.duration) * 100;
-                progressBar.style.width = percentage + '%';
-            };
-        }
-
-        // 4. Пасхалка в стиле 2007-го
-        console.log("RuTube 2007 запущен! Привет из эпохи Flash!");
-    </script>
 
 </body> <!-- Это самый конец твоего файла -->
 </html>
