@@ -65,38 +65,44 @@
         </footer>
     </div>
 <script>
-    
-        // 1. Находим элементы (кнопки и полоску), которые ты сделал в HTML
-        const playBtn = document.querySelector('.btn'); // Твоя кнопка из 2000-х
-        const progressBar = document.querySelector('.fill'); // Заливка полоски прогресса
-        const videoElement = document.querySelector('video'); // Тег видео (если добавил)
+    // 1. Инициализация PlayerJS (если файл playerjs.js подключен)
+    // Если используешь PlayerJS, стандартный тег <video> лучше убрать, 
+    // оставив только <div id="player"></div>
+    if (typeof Playerjs === "function") {
+        var player = new Playerjs({
+            id: "video-container", // Пихаем прямо в твой контейнер
+            file: "videoplayback.mp4", // Ссылка на твой видос
+            poster: "rutube.png" // Превьюха
+        });
+    }
 
-        // 2. Оживляем кнопку Play/Pause
-        if (playBtn && videoElement) {
-            playBtn.onclick = function() {
-                if (videoElement.paused) {
-                    videoElement.play();
-                    playBtn.innerText = 'Pause';
-                    playBtn.style.boxShadow = 'inset 2px 2px 5px #000'; // Эффект нажатия
-                } else {
-                    videoElement.pause();
-                    playBtn.innerText = 'Play';
-                    playBtn.style.boxShadow = 'none';
-                }
-            };
-        }
+    // 2. Оживляем кнопку Лайков (теперь по ID, как в твоем HTML)
+    const likeBtn = document.getElementById('likeBtn');
+    const likeCount = document.getElementById('likeCount');
 
-        // 3. Двигаем полоску прогресса (как в настоящем плеере)
-        if (videoElement && progressBar) {
-            videoElement.ontimeupdate = function() {
-                // Вычисляем процент просмотренного видео
-                let percentage = (videoElement.currentTime / videoElement.duration) * 100;
-                progressBar.style.width = percentage + '%';
-            };
-        }
+    if (likeBtn && likeCount) {
+        likeBtn.onclick = function() {
+            let currentLikes = parseInt(likeCount.innerText.replace(',', '')); // Убираем запятую из числа
+            likeCount.innerText = (currentLikes + 1).toLocaleString(); // Прибавляем и возвращаем красиво
+            
+            // Стайл 2000-х: кнопка западает
+            likeBtn.disabled = true;
+            likeBtn.innerText = 'СПАСИБО!';
+            likeBtn.style.background = '#ddd';
+            likeBtn.style.boxShadow = 'inset 2px 2px 5px #888';
+            
+            console.log("Лайк засчитан! Респект за контент!");
+        };
+    }
 
-        // 4. Пасхалка в стиле 2007-го
-        console.log("RuTube 2007 запущен! Привет из эпохи Flash!");
+    // 3. Убираем контекстное меню (чтобы не качали по правой кнопке)
+    const videoCont = document.getElementById('video-container');
+    videoCont.oncontextmenu = function() {
+        return false; // Шах и мат, любители халявы!
+    };
+
+    console.log("RuTube 2007 Engine: Ready to rock! 🤘");
 </script>
+
 </body>
 </html>
