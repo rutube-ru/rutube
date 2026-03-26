@@ -43,3 +43,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
     console.log("--- RuTube Custom Engine Started ---");
 });
+const video = document.getElementById('mainPlayer');
+
+if (video) {
+    video.style.objectFit = "contain"; // Магия! Делает черные полосы по бокам или сверху, как в телеке
+    video.style.backgroundColor = "#000"; // Чтобы полосы были трушными черными
+
+    // Если хочешь, чтобы плеер сам подстраивал высоту (необязательно)
+    video.onloadedmetadata = function() {
+        console.log("Разрешение видео: " + this.videoWidth + "x" + this.videoHeight);
+        
+        // Проверка: если видео 4:3, можем чуть сузить контейнер (по желанию)
+        let aspect = this.videoWidth / this.videoHeight;
+        if (aspect < 1.5) {
+            console.log("Внимание: Обнаружен олдскульный формат 4:3!");
+        }
+    };
+}
+
